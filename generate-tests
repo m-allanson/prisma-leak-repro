@@ -5,12 +5,12 @@ set -e
 TEMPLATE=src/test.ts
 OUT=tests-generated
 
-if [ -z "$1" ]; then
+if [[ -z "$1" ]]; then
     >&2 printf "Usage: %s <N>\n\tN - number of test copies\n" "$0"
     exit 1
 fi
 
-if [ -d "$OUT" ]; then
+if [[ -d "$OUT" ]]; then
     rm -r "$OUT"
 fi
 
