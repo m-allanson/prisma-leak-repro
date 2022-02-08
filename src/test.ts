@@ -1,4 +1,4 @@
-import { PrismaClient } from '../client'
+import { PrismaClient } from '../prisma/client'
 
 test('instantiate Prisma Client', async () => {
   const prisma = new PrismaClient()
