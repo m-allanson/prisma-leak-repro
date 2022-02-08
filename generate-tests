@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+TEMPLATE=src/test.ts
+OUT=tests-generated
+
+if [ -z "$1" ]; then
+    >&2 printf "Usage: %s <N>\n\tN - number of test copies\n" "$0"
+    exit 1
+fi
+
+if [ -d "$OUT" ]; then
+    rm -r "$OUT"
+fi
+
+mkdir -p "$OUT"
+
+for ((i=1; i<=$1; i++)); do
+    cp "$TEMPLATE" "$OUT/$i.test.ts"
+done
