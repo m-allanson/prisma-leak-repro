@@ -2,8 +2,11 @@ TEST_COPIES = 50
 
 .PHONY: test
 
-prisma/client/index.js: prisma/schema.prisma
+prisma/client/index.js: prisma/schema.prisma node_modules/prisma/build/index.js
 	npx prisma generate
+
+node_modules/prisma/build/index.js:
+	npm install
 
 tests-generated: src/test.ts
 	./generate-tests $(TEST_COPIES)
